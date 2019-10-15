@@ -12,7 +12,7 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = Factory::create("fr_FR");
-        for ($i=1; $i < 100 ; $i++) 
+        for ($i=1; $i < 20 ; $i++) 
         { 
             $article = new Article();
             $article ->setLibelle($faker->sentence(6))

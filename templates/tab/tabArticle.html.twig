@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tableau des articles{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <h2>Liste des articles</h2>
+        <a href="{{path('tab_create')}}" class='btn btn-success float-right'><i class="fas fa-plus-circle"></i>Ajouter un article</a>
+    </div>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr class="d-flex">
+                <th scope="col" class="col-md-3">Id</th>
+                <th scope="col" class="col-md-3">Libellé</th>
+                <th scope="col" class="col-md-3">Prix</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for article in articles %}
+                <tr class='d-flex'>
+                    <td class='col-md-3'>{{article.id}}</td>
+                    <td class='col-md-3'>{{article.libelle}}</td>
+                    <td class='col-md-3'>{{article.prix}}</td>
+                    <td class='col-md-3'>
+                        <a href='' class='btn btn-info'><i class='fas fa-pen'></i></a>
+                        <a href='{{path('tab_delete', {'id': article.id})}}' class='btn btn-danger'><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+</div>
+{% endblock %}
